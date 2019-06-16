@@ -14,6 +14,7 @@ import me.chanjar.weixin.cp.config.WxCpConfigStorage;
 
 /**
  * 微信API的Service
+ *
  * @author chanjaster
  */
 public interface WxCpService {
@@ -81,9 +82,10 @@ public interface WxCpService {
   /**
    * 获得jsapi_ticket,不强制刷新jsapi_ticket
    * 应用的jsapi_ticket用于计算agentConfig（参见“通过agentConfig注入应用的权限”）的签名，签名计算方法与上述介绍的config的签名算法完全相同，但需要注意以下区别：
-   *
+   * <p>
    * 签名的jsapi_ticket必须使用以下接口获取。且必须用wx.agentConfig中的agentid对应的应用secret去获取access_token。
    * 签名用的noncestr和timestamp必须与wx.agentConfig中的nonceStr和timestamp相同。
+   *
    * @see #getJsapiTicket(boolean)
    */
   String getAgentJsapiTicket() throws WxErrorException;
@@ -215,7 +217,7 @@ public interface WxCpService {
    * @return WxSessionManager
    */
   WxSessionManager getSessionManager();
-  
+
   /**
    * <pre>
    * 设置WxSessionManager，只有当需要使用个性化的WxSessionManager的时候才需要调用此方法，
@@ -293,10 +295,12 @@ public interface WxCpService {
    * 获取用户相关接口的服务类对象
    */
   WxCpUserService getUserService();
-  
+
+  WxCpExternalContactService getExternalContactService();
+
   /**
    * 获取群聊服务
-   * 
+   *
    * @return 群聊服务
    */
   WxCpChatService getChatService();

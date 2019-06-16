@@ -1,5 +1,6 @@
 package me.chanjar.weixin.cp.api.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import me.chanjar.weixin.cp.api.WxCpUserService;
 import me.chanjar.weixin.cp.bean.WxCpInviteResult;
 import me.chanjar.weixin.cp.bean.WxCpUser;
 import me.chanjar.weixin.cp.bean.WxCpUserExternalContactInfo;
+import me.chanjar.weixin.cp.bean.WxCpUserExternalContactList;
 import me.chanjar.weixin.cp.util.json.WxCpGsonBuilder;
 
 /**
@@ -184,10 +186,4 @@ public class WxCpUserServiceImpl implements WxCpUserService {
     return tmpJsonElement.getAsJsonObject().get("userid").getAsString();
   }
 
-  @Override
-  public WxCpUserExternalContactInfo getExternalContact(String userId) throws WxErrorException {
-    String url = "https://qyapi.weixin.qq.com/cgi-bin/crm/get_external_contact?external_userid=" + userId;
-    String responseContent = this.mainService.get(url, null);
-    return WxCpUserExternalContactInfo.fromJson(responseContent);
-  }
 }

@@ -136,16 +136,5 @@ public interface WxCpUserService {
    */
   String openid2UserId(String openid) throws WxErrorException;
 
-  /**
-   * 获取外部联系人详情.
-   * <pre>
-   *   企业可通过此接口，根据外部联系人的userid，拉取外部联系人详情。权限说明：
-   * 企业需要使用外部联系人管理secret所获取的accesstoken来调用
-   * 第三方应用需拥有“企业客户”权限。
-   * 第三方应用调用时，返回的跟进人follow_user仅包含应用可见范围之内的成员。
-   * </pre>
-   *
-   * @param userId 外部联系人的userid
-   */
-  WxCpUserExternalContactInfo getExternalContact(String userId) throws WxErrorException;
+
 }
